@@ -1,12 +1,8 @@
 package web;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -31,7 +27,9 @@ public class FirstServlet extends HttpServlet {
 				out.println("<body>");
 				out.println("It's my First Servelet ");
 				out.println("</body>");
-				out.println("</html>");	}
+				out.println("</html>");	
+				
+		}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
