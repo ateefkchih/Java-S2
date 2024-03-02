@@ -17,24 +17,26 @@ public class ImcServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 			//response.setContentType("text/html; charset=UTF-8");	
-        float poids = Float.parseFloat(request.getParameter("poids"));
-        float taille = Float.parseFloat(request.getParameter("taille"));
-
-        Imc imc = new Imc(taille, poids);
-        float res= imc.calcul();
+        /*float poids = Float.parseFloat(request.getParameter("poids"));
+        float taille = Float.parseFloat(request.getParameter("taille"));*/
+		String p = request.getParameter("poids");
+		String t = request.getParameter("taille");
+		float resu= Float.parseFloat(p) / (Float.parseFloat(t)* Float.parseFloat(t));
+        //Imc imc = new Imc(taille, poids);
         
-			try (PrintWriter out = response.getWriter())
-				{
+			
+					PrintWriter out = response.getWriter();
+			
 	            out.println("<!DOCTYPE html>");
 	            out.println("<html>");
 	            out.println("<head>");
 	            out.println("<title> IMC-Servlet</title>");
 	            out.println("</head>");
 	            out.println("<body>");
-	            out.println("IMC: " + res + "<br>");
+	            out.println("IMC: " + resu + "<br>");
 	            out.println("</body>");
 	            out.println("</html>");
-			}
+			
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
